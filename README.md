@@ -5,7 +5,8 @@ TO DO
  * add "Inspired by" links
 
 
-# Version Control Optimzed WordPress Structure
+Version Control Optimzed WordPress Structure
+============================================
 
 By default, [WordPress](https://wordpress.org/) is self-contained within a single directory. This is not the optimal arrangement for implementation of version control.
 
@@ -19,7 +20,8 @@ This repository addresses these issues via the following configuration changes:
 3. The `wp-config.php` now contains only project-specific data (suitable for version control). It's configured to look for and `require` a localized config file for environment-specific data (such as database credentials).
 4. A template for the localized config file (`sample-config.php`) has been added.
 
-### Installation
+Installation
+------------
 
 Note: These instructions assume the remote host is configured for SSH and has both [Git](http://www.git-scm.com/) and [Wget](https://www.gnu.org/software/wget/) accessible via the command-line.
 
