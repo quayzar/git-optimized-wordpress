@@ -1,6 +1,5 @@
 ##### TO DO
  - [ ] spell out ignored file structure in these instructions
- - [ ] add link to download ZIP
  - [ ] add GitHub link
  - [ ] add "Inspired by" links
 
