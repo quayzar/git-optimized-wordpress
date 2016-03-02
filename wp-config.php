@@ -17,7 +17,32 @@
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH'))
 	define('ABSPATH', dirname(__FILE__) . '/');
+	
+/* fixthis >> create array of environment names
+$environments = array(
+	'local' => 'local',
+	'dev' => 'development',
+	'live' => 'production'
+);
+This unifies the reference name (eg. "live")
+while permitting variation in the actual name
+(eg. "production");
 
+OR I could define them:
+define('LIVE', 'production')
+
+Then I reference them below like so:
+if (file_exists(PROJECT_DIRECTORY . LOCAL . '-config.php' ) )
+
+This has the greatest flexibility. Although if I use an array
+I can loop through and search for first one, perhaps defaulting
+to live. This would do away with the large block below.
+
+FIXTHIS >> add for "staging"
+
+The section below would need to be edited as well.
+
+*/
 // Look for environment-specific config file and, if found, require it
 define('PROJECT_DIRECTORY', dirname(ABSPATH).'/');
 // FIXTHIS >> also have it look outside the project directory
