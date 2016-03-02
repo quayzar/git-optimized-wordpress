@@ -2,3 +2,4 @@
 /local-config.php
 /dev-config.php
 /live-config.php
+/wp-content/plugins/*

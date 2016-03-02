@@ -20,12 +20,17 @@ if (!defined('ABSPATH'))
 
 // Look for environment-specific config file and, if found, require it
 define('PROJECT_DIRECTORY', dirname(ABSPATH).'/');
+// FIXTHIS >> also have it look outside the project directory
+// add a note explaining that it can be placed in either spot
 if (file_exists(PROJECT_DIRECTORY.'local-config.php')) {
 	require PROJECT_DIRECTORY.'local-config.php';
+	define('IS_LOCAL', true);
 } elseif (file_exists( PROJECT_DIRECTORY.'dev-config.php')) {
 	require PROJECT_DIRECTORY.'dev-config.php';
-} elseif (file_exists( PROJECT_DIRECTORY.'production-config.php')) {
-	require PROJECT_DIRECTORY.'production-config.php';
+	define('IS_DEV', true);
+} elseif (file_exists( PROJECT_DIRECTORY.'live-config.php')) {
+	require PROJECT_DIRECTORY.'live-config.php';
+	define('IS_LIVE', true);
 } else { // stop everything
 	die ("<h1 style='font-weight:bold;color:#F00;'>No environment-specific config file found!</H1>");
 }
