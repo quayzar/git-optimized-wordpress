@@ -6,7 +6,7 @@ This repository contains a Git-optimized boilerplate structure for use with vers
 **Changes**
  * There's a separate subdirectory for the WordPress core (`cms/`).
  * The active `wp-content/` subdirectory is located outside the WordPress subdirectory, at the project root. 
- * The `wp-config.php` file has been reconfigured for version control, now containing only general project data and not sensitive, environment-specific data, such as salts & keys.
+ * The `wp-config.php` file has been reconfigured for inclusion in the project repository, now containing only general project data and not sensitive, environment-specific data, such as database credentials or salts & keys.
  * This sensitive information is now contained in a localized config file that, for added security, can be placed outside of the web root.
  * A template for this localized config file (`sample-config.php`) has been added.
  * A `.gitignore` file has been configured so only the project structure and files are under version control.
