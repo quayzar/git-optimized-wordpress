@@ -1,5 +1,5 @@
-Git-Optimized WordPress Structure
-=================================
+Git-Optimized WordPress
+=======================
 
 This repository contains a Git-optimized boilerplate structure for use with version-controlled WordPress projects.
 
