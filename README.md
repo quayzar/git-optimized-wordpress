@@ -26,9 +26,13 @@ git init
 git add .
 git commit -m 'initial commit'
 ```
-The boilerplate comes pre-configured with `.gitignore` files:
+The boilerplate comes pre-configured with two `.gitignore` files:
  * `/.gitignore`
- * `/cms/.gitignore` => only here to force Git to create this directory
+ * `/cms/.gitignore`
+
+`/.gitignore` contains all of the project ignore rules; `/cms/.gitignore` is just there to force Git to create the `/cms/` subdirectory. 
+
+If you're using parent themes or if you have default or placeholder themes, you may need to add rules for `/wp-content/themes/`. FIXTHIS
 
 *Note: If you're using something other than Git for version control , don't forget to recreate these ignore rules once you've set up your repository.*
 
