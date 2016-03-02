@@ -42,7 +42,6 @@ Once the project repository is set up, you need to create a localized config fil
  1. Create an empty database. Note the host, database name, username, and password, as you'll need them shortly.
  2. Copy `sample-config.php` to create a localized config file *in position* on the server (see note below). Replace "sample" in the new name with "local", "dev", or "live", depending on the environment.
  3. Open this new file and make the following changes:
-  * Set `WP_ENV` as "local", "dev", or "live", depending on the environment.
   * Provide `ADDL_SUBDIR` (if any).
   * Enter the database credentials.
   * [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add the salts & keys.
@@ -61,14 +60,16 @@ Note: This boilerplate is configured to look for the localized config file eithe
  5. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
  6. Log into the WordPress backend.
  7. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
- 8. FIXTHIS >> theme
- 9. FIXTHIS >> plugins
+ 8. FIXTHIS >> theme || parent themes via COMPOSER
+ 9. FIXTHIS >> plugins via COMPOSER
  
 You should now have a working installation of WordPress that's optimized for version control. Run `git status` again, to confirm no untracked files or unexpected modifications.
 
 Deploy a project
 ----------------
-When you're ready to deploy your project (say, to your dev environment on your remote host) start by cloning your project repository to the new environment, then repeat **Configure an instance** above. 
+When you're ready to deploy your project (say, to your dev environment on your remote host) start by cloning your project repository to the new environment, then repeat **Configure an instance** above.
+
+FIXTHIS: Install and run Composer to install plugins
 
 Frequently Asked Questions
 --------------------------
