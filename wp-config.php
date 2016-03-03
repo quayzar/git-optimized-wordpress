@@ -13,7 +13,7 @@
  * the web root or one level above.
  */
 
-/* Define absolute path to the WordPress directory */
+/* Define absolute path to the WordPress subdirectory */
 if ( !defined( 'ABSPATH' )) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
@@ -77,7 +77,7 @@ else {
  * These will be used if none are defined in the localized config file loaded above
  * Generate them here: https://api.wordpress.org/secret-key/1.1/salt/
  * 
- * IMPORTANT: REPLACE THE PLACEHOLDER TEXT WITH PROPERLY-GENERATED VALUES!
+ * IMPORTANT: REPLACE THE PLACEHOLDER TEXT HERE WITH PROPERLY-GENERATED VALUES!
  * 
  */
 if ( !defined( 'AUTH_KEY' )) {
@@ -104,7 +104,17 @@ if ( !defined( 'LOGGED_IN_SALT' )) {
 if ( !defined( 'NONCE_SALT' )) {
 	define( 'NONCE_SALT',		'replace_this_with_a_unique_phrase' );
 }
-if ( 'replace_this_with_a_unique_phrase' == NONCE_SALT ) {
+/* Confirm all salts & keys have been updated */
+if ( 
+	'replace_this_with_a_unique_phrase' == AUTH_KEY ||
+	'replace_this_with_a_unique_phrase' == SECURE_AUTH_KEY ||
+	'replace_this_with_a_unique_phrase' == LOGGED_IN_KEY ||
+	'replace_this_with_a_unique_phrase' == NONCE_KEY ||
+	'replace_this_with_a_unique_phrase' == AUTH_SALT ||
+	'replace_this_with_a_unique_phrase' == SECURE_AUTH_SALT ||
+	'replace_this_with_a_unique_phrase' == LOGGED_IN_SALT ||
+	'replace_this_with_a_unique_phrase' == NONCE_SALT
+) {
 	die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>Replace placeholder text in /wp-config.php with properly-generated salts & keys!</h1>" );
 }
 
@@ -112,11 +122,10 @@ if ( 'replace_this_with_a_unique_phrase' == NONCE_SALT ) {
 if ( !defined( 'ADDL_SUBDIR' )) {
 	define( 'ADDL_SUBDIR', '' );
 }
-define( 'SITE_URL',			'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
-define( 'WP_CONTENT_DIR',	$_SERVER['DOCUMENT_ROOT'] . ADDL_SUBDIR . '/wp-content' );
-define( 'WP_SITEURL',		SITE_URL . '/cms' );
-define( 'WP_HOME',			SITE_URL );
-define( 'WP_CONTENT_URL',	SITE_URL . '/wp-content' );
+define( 'WP_HOME',			'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
+define( 'WP_CONTENT_DIR',	WEB_ROOT . 'wp-content' );
+define( 'WP_SITEURL',		WP_HOME . '/cms' );
+define( 'WP_CONTENT_URL',	WP_HOME . '/wp-content' );
 
 /* Define common database settings */
 define( 'DB_CHARSET',	'utf8' );

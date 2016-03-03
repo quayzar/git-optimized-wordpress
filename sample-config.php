@@ -30,6 +30,7 @@ define( 'DB_PASSWORD',	'' );
  * These will replace the default set stored in /wp-config.php
  * Generate them here: https://api.wordpress.org/secret-key/1.1/salt/
  */
+/* UNCOMMENT THIS SECTION AND REPLACE PLACEHOLDER TEXT WITH PROPERLY-GENERATED, ENVIRONMENT-SPECIFIC SALTS & KEYS
 define( 'AUTH_KEY',         'replace_this_with_a_unique_phrase' );
 define( 'SECURE_AUTH_KEY',  'replace_this_with_a_unique_phrase' );
 define( 'LOGGED_IN_KEY',    'replace_this_with_a_unique_phrase' );
@@ -38,6 +39,7 @@ define( 'AUTH_SALT',        'replace_this_with_a_unique_phrase' );
 define( 'SECURE_AUTH_SALT', 'replace_this_with_a_unique_phrase' );
 define( 'LOGGED_IN_SALT',   'replace_this_with_a_unique_phrase' );
 define( 'NONCE_SALT',       'replace_this_with_a_unique_phrase' );
+*/
 
 /*
  * Debug flags
@@ -48,4 +50,4 @@ define( 'WP_DEBUG_LOG',		false ); // writes to wp-content/debug.log
 define( 'WP_DEBUG_DISPLAY',	false );
 
 /* REMOVE THIS LINE ONCE YOU'VE FINISHED CONFIGURING THIS FILE */
-die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>".__FILE__." is not configured!</H1>" );
+die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>".__FILE__." is not configured!</h1>" );

@@ -3,6 +3,7 @@
 /dev-config.php
 /live-config.php
 /composer.phar
+/vendor/*
 /cms/*
 /wp-content/plugins/*
 
