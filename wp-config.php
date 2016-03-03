@@ -11,9 +11,6 @@
  * It is (and should remain) part of the project repository. This file looks for a localized 
  * config file (containing all sensitive, environment-specific configurations) in either
  * the web root or one level above.
- * 
- * IMPORTANT: REPLACE THE PLACEHOLDER TEXT WITH PROPERLY-GENERATED SALTS & KEYS BEFORE DEPLOYING!
- * 
  */
 
 /* Define absolute path to the WordPress directory */
@@ -72,7 +69,7 @@ elseif ( file_exists( ABOVE_WEB_ROOT . 'local-config.php' ) || file_exists( WEB_
 
 // No localized config was found so stop everything
 else {
-	die ("<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>No localized config file found!</h1>");
+	die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>No localized config file found!</h1>" );
 }
 
 /*
@@ -106,6 +103,9 @@ if ( !defined( 'LOGGED_IN_SALT' )) {
 }
 if ( !defined( 'NONCE_SALT' )) {
 	define( 'NONCE_SALT',		'replace_this_with_a_unique_phrase' );
+}
+if ( 'replace_this_with_a_unique_phrase' == NONCE_SALT ) {
+	die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>Replace placeholder text in /wp-config.php with properly-generated salts & keys!</h1>" );
 }
 
 /* Define site paths */
