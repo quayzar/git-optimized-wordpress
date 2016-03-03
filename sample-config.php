@@ -1,47 +1,51 @@
 <?php
 /**
- * Localized config file for Git-Optimized WordPress project
+ * Environment-specific configuration file for Git-Optimized WordPress
  * 
- * @package Git-Optimized WordPress Structure
- * @version 1.0
- * @author Ian MacKenzie
- * @link https://github.com/quayzar/git-optimized-wordpress
+ * This file contains all sensitive, environment-specific data for a Git-optimized 
+ * WordPress installation. It should *not* be committed to the project repository.
  * 
- * This file contains all of the sensitive, environment-specific data that shouldn't
- * be committed to the project repository. Create a copy of this file in each environment, 
- * with "sample" in the name replaced with "local", "dev", or "live", depending.
- * 
- * This file can be placed outside the web root for added security (recommended).
- * Read more about the pros and cons of doing this here:
+ * To use, save a copy of this file (either at the web root or, for added security, 
+ * one level above), replacing "sample" in the name with "local", "dev", "stage", 
+ * or "live", then update your new file with environment-specific data.
+ * Read more about placement here:
  * http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial
- * 
  */
 
-// Additional subdirectory (if any) >> add preceding slash if not blank
-define('ADDL_SUBDIR', '/sample-subdirectory');
+/*
+ * Additional subdirectory
+ * If this instance of the project is inside an additional subdirectory (i.e. localhost dev
+ * environment) add the subdirectory name here, with a preceding (but no following) slash.
+ */
+define( 'ADDL_SUBDIR', '/additional_subdirectory' );
 
-// Database credentials
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'sample-database');
-define('DB_USER', 'sample-user');
-define('DB_PASSWORD', 'sample-password');
+/* Database credentials */
+define( 'DB_HOST', 		'' );
+define( 'DB_NAME', 		'' );
+define( 'DB_USER', 		'' );
+define( 'DB_PASSWORD',	'' );
 
-// Salts & keys
-// generate from https://api.wordpress.org/secret-key/1.1/salt/
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+/*
+ * Environment-specific salts & keys
+ * These will replace the default set stored in /wp-config.php
+ * Generate them here: https://api.wordpress.org/secret-key/1.1/salt/
+ */
+define( 'AUTH_KEY',         'replace_this_with_a_unique_phrase' );
+define( 'SECURE_AUTH_KEY',  'replace_this_with_a_unique_phrase' );
+define( 'LOGGED_IN_KEY',    'replace_this_with_a_unique_phrase' );
+define( 'NONCE_KEY',        'replace_this_with_a_unique_phrase' );
+define( 'AUTH_SALT',        'replace_this_with_a_unique_phrase' );
+define( 'SECURE_AUTH_SALT', 'replace_this_with_a_unique_phrase' );
+define( 'LOGGED_IN_SALT',   'replace_this_with_a_unique_phrase' );
+define( 'NONCE_SALT',       'replace_this_with_a_unique_phrase' );
 
-// Debug flag (if any)
-// for more: https://codex.wordpress.org/Debugging_in_WordPress
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true); // writes to wp-content/debug.log
-define('WP_DEBUG_DISPLAY', true);
+/*
+ * Debug flags
+ * https://codex.wordpress.org/Debugging_in_WordPress
+ */
+define( 'WP_DEBUG',			false );
+define( 'WP_DEBUG_LOG',		false ); // writes to wp-content/debug.log
+define( 'WP_DEBUG_DISPLAY',	false );
 
-// REMOVE THIS LINE ONCE YOU'VE CONFIGURED FILE AND ARE READY TO SAVE AS ENVIRONMENT-SPECIFIC CONFIG:
-die ("<h1 style='font-weight:bold;color:#F00;'>localized config file not edited!</H1>");
+/* REMOVE THIS LINE ONCE YOU'VE FINISHED CONFIGURING THIS FILE */
+die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>".__FILE__." is not configured!</H1>" );
