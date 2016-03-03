@@ -32,19 +32,19 @@ git commit -m 'initial commit'
 Configuring an instance
 -----------------------
 
-Once the project repository is set up, you need to create a localized config file and then install WordPress:
+Once your project repository has been set up, you'll need to create a localized config file and then install WordPress.
 
 ##### Creating a localized config file
  1. Create an empty database. Note the host, database name, username, and password, as you'll need them shortly.
- 2. Copy `sample-config.php` to create a localized config file, replacing "sample" in the new name with "local", "dev", "staging", or "live", depending on the environment. Save it either at the web root (on the same level as `wp-config.php`) or, for enhanced security, one level up. [Read more on this here.] (http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial/74972#74972)
+ 2. Copy `sample-config.php` to create a localized config file, replacing "sample" in the new name with "local", "dev", "staging", or "live", depending on the environment. Save it either at the web root (on the same level as `wp-config.php`) or, for enhanced security, one level up. [Read more here.] (http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial/74972#74972)
  3. Open this new file and make the following changes:
   * Provide `ADDL_SUBDIR` (if any).
   * Enter the database credentials.
-  * [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add the salts & keys.
+  * [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add environment-specific salts & keys.
   * Configure the debug settings.
   * Remove the `die` configuration warning at the bottom.
 
-Running `git status` at this point should return no untracked files.
+Running `git status` at this point should return neither modifications nor untracked files.
 
 ##### Installing & configuring WordPress
 This project uses [Composer](https://getcomposer.org/) both to install WordPress and to manage any theme or plugin dependencies. If you don't already have Composer, here's how to [install it locally](https://getcomposer.org/download/). The resulting `composer.phar` is already in the `.gitignore` file. 
@@ -52,38 +52,52 @@ This project uses [Composer](https://getcomposer.org/) both to install WordPress
 If you *do* have Composer installed, run `php composer.phar self-update`.
 
  1. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in `composer.json` for reference. 
+ 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. 
  3. Run Composer to install WordPress and all dependencies: `php composer.phar install`
  4. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
  5. Log into the WordPress backend.
- 6. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
+ 6. Select `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
  7. Run `git status` to see all modified or untracked files. 
   * Add the Composer-generated lock file: `git add composer.lock`
-  * If you edited theme or plugin dependencies: `git add composer.json`
-  * If you have any theme dependencies (such as a parent theme), add them to `.gitignore`.
+  * If you edited theme or plugin dependencies, add them: `git add composer.json`
+  * If you have any theme dependencies (such as a parent theme) that shouldn't be in the repository, add them to `.gitignore`.
   * Once all modified or untracked files have been either added or ignored, commit your changes: `git commit -m 'update .gitignore and composer.json, add composer.lock'`
 
-You now have a working Git-optimzied installation of WordPress. Proceed to in-WordPress configuration: Activate plugins, import data, etc. 
+You now have a working Git-optimized installation of WordPress. Proceed with in-WordPress configuration (activate plugins, import data, customize theme, etc). 
 
 Deployment
 ----------
 
- 1. Review `composer.json` to confirm it reflects all current dependencies. Do not run `php composer.phar update` unless you are prepared to perform compatibility testing prior to deployment. If you modify `composer.json`, commit those changes to your repository on GitHub:
+Before deployment, review `composer.json` to confirm it reflects the current dependency set. Do not run `php composer.phar update` unless you are prepared to perform compatibility testing prior to deployment. If you modify `composer.json`, commit those changes to your repository on GitHub:
 ```
 git add composer.json
 git commit -m 'update composer.json to reflect current dependencies'
 git push
 ```
- 2\. SSH to the target host and navigate to the web root.
- 3. Clone your repository.
- 4. Follow the instructions listed under **Creating a localized config file** above.
- 5. Install Composer (if not already installed).
- 6. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 7. Run Composer to install WordPress and all dependencies: `php composer.phar install`
- 8. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
- 9. Log into the WordPress backend.
- 10. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
+
+ 1. SSH to the target host and navigate to the web root.
+ 2. Clone your repository.
+ 3. Follow the instructions listed under **Creating a localized config file** above.
+ 4. Install Composer (if not already installed).
+ 5. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
+ 6. Run Composer to install WordPress and all dependencies: `php composer.phar install`
+ 7. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
+ 8. Log into the WordPress backend.
+ 9. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
+ 10. Perform in-WordPress configuration.
 
 Maintenance
 -----------
-WordPress will handle updates. Can also update via Composer.
+
+**Repository code**
+For changes to code the project repository, use `git pull`.
+
+**Updating dependencies via WordPress**
+It's much simpler to manage updates to WordPress and theme or plugin dependencies through WordPress itself (after a local compatibility review).
+
+**Updating dependencies via Composer**
+ 1. Run `php composer.phar update` locally and perform compatibility testing. If there are compatibility issues, update `composer.json` with the preferred version number.
+ 2. Add the updated `composer.json` and `composer.lock` files to the repository and commit.
+ 3. On the remote host, run `git pull` to update `composer.lock`.
+ 4. Run `php composer.phar self-update`.
+ 5. Run `php composer.phar install`. This will install all dependencies locked to the specific versions tested locally. Do not run `php composer.phar update` unless there are no compatibility issues.
