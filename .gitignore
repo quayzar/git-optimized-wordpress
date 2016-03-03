@@ -2,4 +2,6 @@
 /local-config.php
 /dev-config.php
 /live-config.php
+/composer.phar
+/vendor
 /wp-content/plugins/*

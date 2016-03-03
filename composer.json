@@ -1,0 +1,17 @@
+{
+	"repositories": [
+		{
+			"type":	"composer",
+			"url":	"https://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"johnpbloch/wordpress": "*",
+		"wpackagist-plugin/akismet": "*",
+		"wpackagist-theme/twentysixteen": "*"
+	},
+	"extra": {
+		"wordpress-install-dir": "cms"
+	}
+}
