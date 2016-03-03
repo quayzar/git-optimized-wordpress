@@ -1,17 +1,18 @@
 Git-Optimized WordPress
 =======================
 
-This repository contains a version-control-optimized boilerplate structure for use with WordPress projects.
+This repository contains a version-control-optimized boilerplate structure for use in WordPress projects.
+
+*While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any version control software (such as [Subversion](https://subversion.apache.org/)).*
 
 **Changes**
- * There's a separate subdirectory for the WordPress core (`cms/`).
- * The active `wp-content/` subdirectory is located outside the WordPress subdirectory, at the project root. 
- * The `wp-config.php` file has been reconfigured for inclusion in the project repository, now containing only general project data and not sensitive, environment-specific data, such as database credentials or salts & keys.
+ * WordPress is installed in its own subdirectory (`cms/`).
+ * The active `wp-content/` subdirectory is located outside the WordPress subdirectory, at the web root. 
+ * The `wp-config.php` file has been reconfigured to be included in the project repository. It now contains only general project data and not sensitive, environment-specific data, such as database credentials or salts & keys.
  * This sensitive information is now contained in a localized config file that, for added security, can be placed outside of the web root.
- * A template for this localized config file (`sample-config.php`) has been added.
+ * A template for this localized config file (`sample-config.php`) has been added to the repository.
  * A `.gitignore` file has been configured so only the project structure and files are under version control.
-
-*Note: While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any vcs (such as [Subversion](https://subversion.apache.org/)).*
+ * A `composer.json` file has been added to the repository, for installing WordPress and any theme and/or plugin dependencies.
 
 Setting up a new project repository
 -----------------------------------
