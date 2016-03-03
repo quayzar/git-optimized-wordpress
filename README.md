@@ -19,13 +19,14 @@ Setting up a new project repository
  1. Navigate into the web root of your localhost or dev environment.
  2. Clone this repository: `git clone https://github.com/quayzar/git-optimized-wordpress.git .`
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
- 4. Create a new, project-specific repository:
+ 4. [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add default salts & keys to `wp-config.php`.
+ 5. Create a new, project-specific repository:
 ```
 git init
 git add .
 git commit -m 'initial commit'
 ```
- 5\. [Push your local repository to GitHub](http://quayzar.com/git/pushing-a-local-repository-to-github/).
+ 6\. [Push your local repository to GitHub](http://quayzar.com/git/pushing-a-local-repository-to-github/).
 
 The boilerplate comes pre-configured with two `.gitignore` files:
  * `/.gitignore` <-- this contains all of the project ignore rules
@@ -52,7 +53,7 @@ Running `git status` at this point should return no untracked files.
 
 Note: This boilerplate is configured to look for the localized config file either at the web root (on the same level as `wp-config.php`) or, for enhanced security, [one level above](http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial/74972#74972). 
 
-##### Installing WordPress
+##### Installing & configuring WordPress
  1. Download WordPress to the web root: `wget https://wordpress.org/latest.tar.gz`
  2. Extract WordPress into the `cms` subdirectory: `tar xvf latest.tar.gz -C cms --strip-components=1`
  3. Remove the WordPress archive: `rm latest.tar.gz`
