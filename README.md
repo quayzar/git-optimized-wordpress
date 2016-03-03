@@ -1,7 +1,7 @@
 Git-Optimized WordPress
 =======================
 
-This repository contains a Git-optimized boilerplate structure for use with version-controlled WordPress projects.
+This repository contains a version-control-optimized boilerplate structure for use with WordPress projects.
 
 **Changes**
  * There's a separate subdirectory for the WordPress core (`cms/`).
