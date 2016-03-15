@@ -7,7 +7,7 @@ This repository contains a version-control-optimized boilerplate structure for u
 
 ##### What's different?
  * WordPress is installed in its own subdirectory (`cms/`).
- * The active `wp-content/` subdirectory is located at the web root. 
+ * The active `wp-content/` subdirectory is located at the project root. 
  * The `wp-config.php` file is designed for inclusion in the project repository. It now contains only general project data and not sensitive, environment-specific data, such as database credentials or salts & keys.
  * This sensitive information is now contained in a localized config file that, for added security, has the option of being placed outside of the web root.
  * A template for this localized config file (`sample-config.php`) has been added to the repository.
@@ -17,7 +17,7 @@ This repository contains a version-control-optimized boilerplate structure for u
 Setting up a new project repository
 -----------------------------------
 
- 1. Navigate into the web root of your localhost or dev environment.
+ 1. Navigate into the project directory.
  2. Clone this repository: `git clone https://github.com/quayzar/git-optimized-wordpress.git .`
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
  4. [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add default salts & keys to `wp-config.php`.
@@ -52,16 +52,14 @@ This project uses [Composer](https://getcomposer.org/) both to install WordPress
 If you *do* have Composer installed, run `php composer.phar self-update`.
 
  1. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. 
+ 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. If you edit theme or plugin dependencies, add the changes to the repository: `git add composer.json`
  3. Run Composer to install WordPress and all dependencies: `php composer.phar install`
- 4. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
- 5. Log into the WordPress backend.
- 6. Select `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
- 7. Run `git status` to see all modified or untracked files. 
-  * Add the Composer-generated lock file: `git add composer.lock`
-  * If you edited theme or plugin dependencies, add them: `git add composer.json`
-  * If you have any theme dependencies (such as a parent theme) that shouldn't be in the repository, add them to `.gitignore`.
-  * Once all modified or untracked files have been either added or ignored, commit your changes: `git commit -m 'update .gitignore and composer.json, add composer.lock'`
+ 4. Add the Composer-generated lock file to the repository: `git add composer.lock`
+ 5. If you have any theme dependencies (such as a parent theme) that shouldn't be in the repository, adjust `.gitignore` to reflect, then add the changes to the repository: `git add .gitignore`
+ 6. Run `git status` to confirm all modified or untracked files have been either added or ignored, then commit the changes.
+ 7. Load the project URL in a browser window. Complete the WordPress installation form and submit.
+ 8. Log into the WordPress backend.
+ 9. Select `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
 
 You now have a working Git-optimized installation of WordPress. Proceed with in-WordPress configuration (activate plugins, import data, customize theme, etc). 
 
