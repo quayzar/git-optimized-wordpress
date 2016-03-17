@@ -63,12 +63,12 @@ Unless you've only just installed Composer, it's a good idea to run `composer se
  8. Log into the WordPress backend.
  9. Select `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
 
-You now have a working Git-optimized installation of WordPress. Proceed with in-WordPress configuration (activate plugins, import data, customize theme, etc). 
+You now have a working Git-optimized installation of WordPress. Proceed with in-WordPress configuration: Activate plugins, import data, customize theme, etc. 
 
 Deployment
 ----------
 
-Before deployment, review `composer.json` to confirm it reflects the current dependency set. Do not run `composer update` unless you are prepared to perform compatibility testing prior to deployment. If you modify `composer.json`, commit those changes to your repository on GitHub:
+Before deployment, review `composer.json` to confirm it reflects the current dependency set. Do not run `composer update` unless you are prepared to perform compatibility testing prior to deployment. If you do modify `composer.json`, commit those changes to your repository on GitHub:
 ```
 git add composer.json
 git commit -m 'update composer.json to reflect current dependencies'
