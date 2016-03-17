@@ -3,7 +3,7 @@ Git-Optimized WordPress
 
 This repository contains a version-control-optimized boilerplate structure for use in WordPress projects.
 
-*[Note: While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any version control software (such as [Subversion](https://subversion.apache.org/)).]*
+*Note: While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any version control software, such as [Subversion](https://subversion.apache.org/).*
 
 ##### What's different?
  * WordPress is installed in its own subdirectory (`cms/`).
