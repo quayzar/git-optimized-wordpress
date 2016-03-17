@@ -47,7 +47,7 @@ Once your project repository has been set up, there are two remaining tasks: cre
 Running `git status` at this point should return neither modifications nor untracked files.
 
 ##### Installing & configuring WordPress
-This project uses [Composer](https://getcomposer.org/) both to install WordPress and to manage any theme or plugin dependencies. If you don't already have Composer, [install it locally](https://getcomposer.org/download/). The resulting `composer.phar` is already in the `.gitignore` file.
+This project uses [Composer](https://getcomposer.org/) both to install WordPress and to manage any theme or plugin dependencies. If you don't already have Composer, [install it locally](https://getcomposer.org/download/).
 
 Note: These instructions assume a global installation of Composer. If Composer is installed locally, replace `composer` in all the commands with `php composer.phar`.
 
