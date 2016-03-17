@@ -12,7 +12,7 @@ This repository contains a version-control-optimized boilerplate structure for u
  * This sensitive information is now contained in a localized config file that, for added security, has the option of being placed outside of the web root.
  * A template for this localized config file (`sample-config.php`) has been added to the repository.
  * A preconfigured `.gitignore` file has been added to the repository.
- * A `composer.json` file has been added to the repository, to install WordPress and any theme or plugin dependencies.
+ * Composer is used to install WordPress and any theme or plugin dependencies. A pre-configured `composer.json` file has been added to the repository.
 
 Setting up a new project repository
 -----------------------------------
@@ -20,7 +20,7 @@ Setting up a new project repository
  1. Navigate into the project directory.
  2. Clone this repository: `git clone https://github.com/quayzar/git-optimized-wordpress.git .`
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
- 4. [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add default salts & keys to `wp-config.php`.
+ 4. Update `wp-config.php` with default [salts & keys](https://api.wordpress.org/secret-key/1.1/salt/).
  5. Create a new, project-specific repository:
 ```
 git init
@@ -28,11 +28,11 @@ git add .
 git commit -m 'initial commit'
 ```
  6\. [Push your local repository to GitHub](http://quayzar.com/git/pushing-a-local-repository-to-github/).
+ 
+Installation
+------------
 
-Configuring an instance
------------------------
-
-Once your project repository has been set up, you'll need to create a localized config file and then install WordPress.
+Once your project repository has been set up, there are two remaining tasks: create a localized config file and install WordPress.
 
 ##### Creating a localized config file
  1. Create an empty database. Note the host, database name, username, and password, as you'll need them shortly.
@@ -42,18 +42,20 @@ Once your project repository has been set up, you'll need to create a localized 
   * Enter the database credentials.
   * [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add environment-specific salts & keys.
   * Configure the debug settings.
-  * Remove the `die` configuration warning at the bottom.
+  * Remove the `die` warning at the bottom.
 
 Running `git status` at this point should return neither modifications nor untracked files.
 
 ##### Installing & configuring WordPress
-This project uses [Composer](https://getcomposer.org/) both to install WordPress and to manage any theme or plugin dependencies. If you don't already have Composer, here's how to [install it locally](https://getcomposer.org/download/). The resulting `composer.phar` is already in the `.gitignore` file. 
+This project uses [Composer](https://getcomposer.org/) both to install WordPress and to manage any theme or plugin dependencies. If you don't already have Composer, [install it locally](https://getcomposer.org/download/). The resulting `composer.phar` is already in the `.gitignore` file.
 
-If you *do* have Composer installed, run `php composer.phar self-update`.
+Note: These instructions assume a global installation of Composer. If Composer is installed locally, replace `composer` in all the commands with `php composer.phar`.
+
+Unless you've only just installed Composer, it's a good idea to run `composer self-update` before getting started.
 
  1. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. If you edit theme or plugin dependencies, add the changes to the repository: `git add composer.json`
- 3. Run Composer to install WordPress and all dependencies: `php composer.phar install`
+ 2. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. If you edit the dependencies, add the changes to the repository: `git add composer.json`
+ 3. Run Composer to install WordPress and all dependencies: `composer install`
  4. Add the Composer-generated lock file to the repository: `git add composer.lock`
  5. If you have any theme dependencies (such as a parent theme) that shouldn't be in the repository, adjust `.gitignore` to reflect, then add the changes to the repository: `git add .gitignore`
  6. Run `git status` to confirm all modified or untracked files have been either added or ignored, then commit the changes.
@@ -66,7 +68,7 @@ You now have a working Git-optimized installation of WordPress. Proceed with in-
 Deployment
 ----------
 
-Before deployment, review `composer.json` to confirm it reflects the current dependency set. Do not run `php composer.phar update` unless you are prepared to perform compatibility testing prior to deployment. If you modify `composer.json`, commit those changes to your repository on GitHub:
+Before deployment, review `composer.json` to confirm it reflects the current dependency set. Do not run `composer update` unless you are prepared to perform compatibility testing prior to deployment. If you modify `composer.json`, commit those changes to your repository on GitHub:
 ```
 git add composer.json
 git commit -m 'update composer.json to reflect current dependencies'
@@ -78,24 +80,8 @@ git push
  3. Follow the instructions listed under **Creating a localized config file** above.
  4. Install Composer (if not already installed).
  5. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 6. Run Composer to install WordPress and all dependencies: `php composer.phar install`
+ 6. Run Composer to install WordPress and all dependencies: `composer install`
  7. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
  8. Log into the WordPress backend.
  9. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
  10. Perform in-WordPress configuration.
-
-Maintenance
------------
-
-**Repository code**
-For changes to code the project repository, use `git pull`.
-
-**Updating dependencies via WordPress**
-It's much simpler to manage updates to WordPress and theme or plugin dependencies through WordPress itself (after a local compatibility review).
-
-**Updating dependencies via Composer**
- 1. Run `php composer.phar update` locally and perform compatibility testing. If there are compatibility issues, update `composer.json` with the preferred version number.
- 2. Add the updated `composer.json` and `composer.lock` files to the repository and commit.
- 3. On the remote host, run `git pull` to update `composer.lock`.
- 4. Run `php composer.phar self-update`.
- 5. Run `php composer.phar install`. This will install all dependencies locked to the specific versions tested locally. Do not run `php composer.phar update` unless there are no compatibility issues.
