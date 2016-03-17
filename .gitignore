@@ -3,9 +3,9 @@
 /dev-config.php
 /live-config.php
 /composer.phar
-/vendor/*
-/cms/*
-/wp-content/plugins/*
+/vendor
+/cms
+/wp-content/plugins
 
 # If your theme isn't part of the project repository, uncomment this line:
-#/wp-content/themes/*
+#/wp-content/themes
