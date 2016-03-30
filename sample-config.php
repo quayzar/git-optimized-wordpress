@@ -62,5 +62,14 @@ define( 'WP_DEBUG',		false );
 define( 'WP_DEBUG_LOG',		false ); // writes to wp-content/debug.log
 define( 'WP_DEBUG_DISPLAY',	false );
 
+/*
+ * PHP error reporting
+ * For sorting out The White Screen of Death
+ */
+/*
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+*/
+
 /* REMOVE THIS LINE ONCE YOU'VE FINISHED CONFIGURING THIS FILE */
 die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>".__FILE__." is not configured!</h1>" );
