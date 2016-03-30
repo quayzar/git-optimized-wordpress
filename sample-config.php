@@ -5,11 +5,24 @@
  * This file contains all sensitive, environment-specific data for a Git-optimized 
  * WordPress installation. It should *not* be committed to the project repository.
  * 
- * To use, save a copy of this file (either at the web root or, for added security, 
- * one level above), replacing "sample" in the name with "local", "dev", "stage", 
- * or "live", then update your new file with environment-specific data.
- * Read more about placement here:
+ * To use, save a copy of this file (either at the web root or, for added security, one level above),
+ * replacing "sample" in the name with "local", "dev", "stage", or "live", then update your new file 
+ * with environment-specific data. Read more about placement here:
  * http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial
+ * 
+ * For environments with multiple instances (such as a production server hosting the live site
+ * at the web root and a dev instance hosted in a separate subdirectory) put the live config
+ * one level above the web root and the other config file within the instance subdirectory, like so:
+ * 
+ * /dev/dev-config.php	<== dev site
+ * /live-config.php
+ * /public_html/	<== live site
+ * 
+ * This will prevent the dev instance from finding and loading the live config file.
+ * Alternately, put all config files within the appropriate instance subdirectory:
+ * 
+ * /dev/dev-config.php
+ * /public_html/live-config.php
  */
 
 /*
@@ -20,10 +33,10 @@
 define( 'ADDL_SUBDIR', '/additional_subdirectory' );
 
 /* Database credentials */
-define( 'DB_HOST', 		'' );
-define( 'DB_NAME', 		'' );
-define( 'DB_USER', 		'' );
-define( 'DB_PASSWORD',	  '' );
+define( 'DB_HOST', 	'' );
+define( 'DB_NAME', 	'' );
+define( 'DB_USER',	'' );
+define( 'DB_PASSWORD',	'' );
 
 /*
  * Environment-specific salts & keys
@@ -45,7 +58,7 @@ define( 'NONCE_SALT',       'replace_this_with_a_unique_phrase' );
  * Debug flags
  * https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG',			false );
+define( 'WP_DEBUG',		false );
 define( 'WP_DEBUG_LOG',		false ); // writes to wp-content/debug.log
 define( 'WP_DEBUG_DISPLAY',	false );
 

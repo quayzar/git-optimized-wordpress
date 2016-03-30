@@ -9,8 +9,8 @@
  * 
  * This file contains all project-wide configurations for a Git-optimized WordPress site.
  * It is (and should remain) part of the project repository. This file looks for a localized 
- * config file (containing all sensitive, environment-specific configurations) in either
- * the web root or one level above.
+ * config file (containing all sensitive, environment-specific configurations) in the web 
+ * root or one level above.
  */
 
 /* Define absolute path to the WordPress subdirectory */
@@ -27,43 +27,43 @@ define( 'ABOVE_WEB_ROOT', dirname( WEB_ROOT ) . '/' );
  * Comment out any environments you're not using
 */
 
-// Live
-if ( file_exists( ABOVE_WEB_ROOT . 'live-config.php' ) || file_exists( WEB_ROOT . 'live-config.php' )) {
-	define( 'IS_LIVE', true );
-	if ( file_exists( ABOVE_WEB_ROOT . 'live-config.php' )) {
-		require ABOVE_WEB_ROOT . 'live-config.php';
+// Local
+if ( file_exists( WEB_ROOT . 'local-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'local-config.php' )) {
+	define( 'IS_LOCAL', true );
+	if ( file_exists( WEB_ROOT . 'local-config.php' )) {
+		require WEB_ROOT . 'local-config.php';
 	} else {
-		require WEB_ROOT . 'live-config.php';
-	}
-}
-
-// Staging
-elseif ( file_exists( ABOVE_WEB_ROOT . 'staging-config.php' ) || file_exists( WEB_ROOT . 'staging-config.php' )) {
-	define( 'IS_STAGING', true );
-	if ( file_exists( ABOVE_WEB_ROOT . 'staging-config.php' )) {
-		require ABOVE_WEB_ROOT . 'staging-config.php';
-	} else {
-		require WEB_ROOT . 'staging-config.php';
+		require ABOVE_WEB_ROOT . 'local-config.php';
 	}
 }
 
 // Dev
-elseif ( file_exists( ABOVE_WEB_ROOT . 'dev-config.php' ) || file_exists( WEB_ROOT . 'dev-config.php' )) {
+elseif ( file_exists( WEB_ROOT . 'dev-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'dev-config.php' )) {
 	define( 'IS_DEV', true );
-	if ( file_exists( ABOVE_WEB_ROOT . 'dev-config.php' )) {
-		require ABOVE_WEB_ROOT . 'dev-config.php';
-	} else {
+	if ( file_exists( WEB_ROOT . 'dev-config.php' )) {
 		require WEB_ROOT . 'dev-config.php';
+	} else {
+		require ABOVE_WEB_ROOT . 'dev-config.php';
 	}
 }
 
-// Local
-elseif ( file_exists( ABOVE_WEB_ROOT . 'local-config.php' ) || file_exists( WEB_ROOT . 'local-config.php' )) {
-	define( 'IS_LOCAL', true );
-	if ( file_exists( ABOVE_WEB_ROOT . 'local-config.php' )) {
-		require ABOVE_WEB_ROOT . 'local-config.php';
+// Staging
+elseif ( file_exists( WEB_ROOT . 'staging-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'staging-config.php' )) {
+	define( 'IS_STAGING', true );
+	if ( file_exists( WEB_ROOT . 'staging-config.php' )) {
+		require WEB_ROOT . 'staging-config.php';
 	} else {
-		require WEB_ROOT . 'local-config.php';
+		require ABOVE_WEB_ROOT . 'staging-config.php';
+	}
+}
+
+// Live
+elseif ( file_exists( WEB_ROOT . 'live-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'live-config.php' )) {
+	define( 'IS_LIVE', true );
+	if ( file_exists( WEB_ROOT . 'live-config.php' )) {
+		require WEB_ROOT . 'live-config.php';
+	} else {
+		require ABOVE_WEB_ROOT . 'live-config.php';
 	}
 }
 
@@ -81,7 +81,7 @@ else {
  * 
  */
 if ( !defined( 'AUTH_KEY' )) {
-	define( 'AUTH_KEY',			'replace_this_with_a_unique_phrase' );
+	define( 'AUTH_KEY',		'replace_this_with_a_unique_phrase' );
 }
 if ( !defined( 'SECURE_AUTH_KEY' )) {
 	define( 'SECURE_AUTH_KEY',	'replace_this_with_a_unique_phrase' );
@@ -122,7 +122,7 @@ if (
 if ( !defined( 'ADDL_SUBDIR' )) {
 	define( 'ADDL_SUBDIR', '' );
 }
-define( 'WP_HOME',			'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
+define( 'WP_HOME',		'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
 define( 'WP_CONTENT_DIR',	WEB_ROOT . 'wp-content' );
 define( 'WP_SITEURL',		WP_HOME . '/cms' );
 define( 'WP_CONTENT_URL',	WP_HOME . '/wp-content' );
