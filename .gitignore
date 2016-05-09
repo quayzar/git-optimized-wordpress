@@ -1,3 +1,4 @@
+.DS_Store
 /.htaccess
 /local-config.php
 /dev-config.php
