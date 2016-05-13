@@ -61,6 +61,7 @@ define( 'NONCE_SALT',       'replace_this_with_a_unique_phrase' );
 define( 'WP_DEBUG',		false );
 define( 'WP_DEBUG_LOG',		false ); // writes to wp-content/debug.log
 define( 'WP_DEBUG_DISPLAY',	false );
+define( 'SCRIPT_DEBUG',		false ); // force use of non-minified CSS / JS files
 
 /*
  * PHP error reporting
