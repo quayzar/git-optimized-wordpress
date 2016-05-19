@@ -122,7 +122,15 @@ if (
 if ( !defined( 'ADDL_SUBDIR' )) {
 	define( 'ADDL_SUBDIR', '' );
 }
-define( 'WP_HOME',		'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
+/* If SSL, uncomment this section and replace active WP_HOME define:
+// Force admin through SSL
+if ( defined( 'IS_LIVE' ) && IS_LIVE ) { // assumes only LIVE instance has SSL
+	define( 'FORCE_SSL_ADMIN', true );
+	define( 'FORCE_SSL_LOGIN', true );
+}
+define( 'WP_HOME',		(( defined( 'IS_LIVE' ) && IS_LIVE ) ? 'https' : 'http' ) . '://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
+*/
+define( 'WP_HOME',		'http://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR ); // If SSL, replace this line with commented line above
 define( 'WP_CONTENT_DIR',	WEB_ROOT . 'wp-content' );
 define( 'WP_SITEURL',		WP_HOME . '/cms' );
 define( 'WP_CONTENT_URL',	WP_HOME . '/wp-content' );
