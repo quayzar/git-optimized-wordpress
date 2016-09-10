@@ -2,6 +2,7 @@
 /.htaccess
 /local-config.php
 /dev-config.php
+/staging-config.php
 /live-config.php
 /composer.phar
 /vendor
