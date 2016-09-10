@@ -78,7 +78,7 @@ git push
 
  1. SSH to the target host and navigate to the web root.
  2. Clone your repository.
- 3. Follow the instructions listed under [**Creating a localized config file**](#creating-a-localized-config-file) above.
+ 3. Follow the instructions listed under [Creating a localized config file](#creating-a-localized-config-file) above.
  4. Install Composer (if not already installed).
  5. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
  6. Run Composer to install WordPress and all dependencies: `composer install`
