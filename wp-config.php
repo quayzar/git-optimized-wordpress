@@ -135,6 +135,9 @@ define( 'WP_CONTENT_DIR',	WEB_ROOT . 'wp-content' );
 define( 'WP_SITEURL',		WP_HOME . '/cms' );
 define( 'WP_CONTENT_URL',	WP_HOME . '/wp-content' );
 
+/* Disable file editing */
+define( 'DISALLOW_FILE_EDIT', true );
+
 /* Define common database settings */
 define( 'DB_CHARSET',	'utf8' );
 define( 'DB_COLLATE',	'' );
