@@ -1,7 +1,7 @@
 Git-Optimized WordPress
 =======================
 
-This repository contains a Git-optimized boilerplate structure for WordPress websites. It incorporates security best practices to harden the WordPress structure
+This repository contains a Git-optimized boilerplate structure for WordPress websites. It incorporates security best practices to harden the WordPress structure as much as is possible from the initial installation.
 
 *Note: While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any version control software, such as [Subversion](https://subversion.apache.org/).*
 
