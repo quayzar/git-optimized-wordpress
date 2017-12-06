@@ -9,11 +9,11 @@ This repository contains a Git-optimized boilerplate structure for WordPress web
  * WordPress is installed in its own subdirectory (`cms/`).
  * The active `wp-content/` subdirectory is located at the project root. 
  * The `wp-config.php` file is designed for inclusion in the project repository. It now contains only general project data and not sensitive, environment-specific data, such as database credentials or salts & keys.
- * This sensitive information is now contained in a localized config file that, for added security, has the option of being placed outside of the web root.
- * There is a template for the localized config file (`sample-config.php`).
+ * This sensitive information is now contained in a localized config file that, for added security, has the option of being placed outside of the web root. A template for this config file is included (`sample-config.php`).
  * There is a security-optimized `.htaccess` file.
  * There is a preconfigured `.gitignore` file.
- * Composer is used to install WordPress and any theme or plugin dependencies. There is a pre-configured `composer.json` file.
+ * Composer is used to install WordPress and all dependencies, including plugins and themes.
+ * There is a preconfigured `composer.json` file containing several recommended plugins and a theme.
 
 Setting up a new project repository
 -----------------------------------
