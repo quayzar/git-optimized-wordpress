@@ -65,7 +65,7 @@ Unless you've only just installed Composer, it's a good idea to run `composer se
  8. Select `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
  9. Remove `README.md` (recommended) and `LICENSE` (optional).
 
-You now have a working Git-optimized installation of WordPress. Proceed with in-WordPress configuration: Activate plugins, import data, customize theme, etc.
+You now have a version-controlled installation of WordPress. Proceed with WordPress configuration: Activate plugins, import data, customize theme, etc.
 
 Deployment
 ----------
@@ -85,4 +85,4 @@ git push
  6. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
  7. Log into the WordPress backend.
  8. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
- 9. Perform in-WordPress configuration.
+ 9. Perform WordPress configuration.
