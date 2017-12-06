@@ -22,8 +22,7 @@ Setting up a new project repository
  2. Clone this repository: `git clone https://github.com/quayzar/git-optimized-wordpress.git .`
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
  4. Update `wp-config.php` with default [salts & keys](https://api.wordpress.org/secret-key/1.1/salt/).
- 5. If SSL is enabled, uncomment the "Force site through SSL" section of `wp-login.php` and the "Redirect site through SSL" section of `.htaccess`.
- 6. Create a new, project-specific repository:
+ 5. Create a new, project-specific repository:
 ```
 git init
 git add .
@@ -42,6 +41,7 @@ Once your project repository has been set up, there are two remaining tasks: cre
  3. Open this new file and make the following changes:
   * Provide `ADDL_SUBDIR` (if any).
   * Enter the database credentials.
+  * If SSL is enabled for this environment, set `SSL_ENABLED` to `true`, then uncomment the "Redirect site through SSL" section of `.htaccess`.
   * [Generate](https://api.wordpress.org/secret-key/1.1/salt/) and add environment-specific salts & keys.
   * Configure the debug settings.
   * Remove the `die` warning at the bottom.
@@ -81,9 +81,8 @@ git push
  2. Clone your repository.
  3. Follow the instructions listed under [Creating a localized config file](#creating-a-localized-config-file) above.
  4. [Install Composer](https://getcomposer.org/download/) (if not already installed).
- 5. Create a blank `.htaccess` file and set permissions: `touch .htaccess && chmod 0644 .htaccess`
- 6. Run Composer to install WordPress and all dependencies: `composer install`
- 7. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
- 8. Log into the WordPress backend.
- 9. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
- 10. Perform in-WordPress configuration.
+ 5. Run Composer to install WordPress and all dependencies: `composer install`
+ 6. Load the project URL in a browser window. Complete the WordPress installation form and submit. 
+ 7. Log into the WordPress backend.
+ 8. Click `Settings > Permalinks`, then update the Permalink structures and save. If you don't receive the "Permalinks structure updated" success message, adjust write permissions on `.htaccess` and try again.
+ 9. Perform in-WordPress configuration.
