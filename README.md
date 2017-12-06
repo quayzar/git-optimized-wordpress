@@ -12,7 +12,7 @@ This repository contains a Git-optimized boilerplate structure for WordPress web
  * This sensitive information is now contained in a localized config file that, for added security, has the option of being placed outside of the web root. A template for this config file is included (`sample-config.php`).
  * There is a security-optimized `.htaccess` file.
  * There is a preconfigured `.gitignore` file.
- * Composer is used to install WordPress and all dependencies, including plugins and themes.
+ * [Composer](https://getcomposer.org/) is used to install WordPress and all dependencies, including plugins and themes.
  * There is a preconfigured `composer.json` file containing several recommended plugins and a theme.
 
 Setting up a new project repository
@@ -22,7 +22,7 @@ Setting up a new project repository
  2. Clone this repository: `git clone https://github.com/quayzar/git-optimized-wordpress.git .`
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
  4. Update `wp-config.php` with default [salts & keys](https://api.wordpress.org/secret-key/1.1/salt/).
- 5. If SSL is enabled, uncomment the `Force site through SSL` section of `wp-login.php` and `Redirect site through SSL` section of `.htaccess`.
+ 5. If SSL is enabled, uncomment the "Force site through SSL" section of `wp-login.php` and the "Redirect site through SSL" section of `.htaccess`.
  6. Create a new, project-specific repository:
 ```
 git init
