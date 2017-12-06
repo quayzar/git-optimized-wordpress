@@ -8,6 +8,7 @@
 /vendor
 /cms
 /wp-content/plugins
+/wp-content/uploads
 
 # If your theme isn't part of the project repository, uncomment this line:
 #/wp-content/themes

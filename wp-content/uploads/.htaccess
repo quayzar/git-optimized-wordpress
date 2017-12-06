@@ -1,0 +1,4 @@
+# Prevent PHP execution in uploads/
+<Files ~ "\.ph(?:p[345]?|t|tml)$">
+   deny from all
+</Files>

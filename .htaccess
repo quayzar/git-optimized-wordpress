@@ -1,16 +1,31 @@
+# Prevent access to wp-config.php
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
 # Prevent directory listing
 Options -Indexes
 
 <IfModule mod_rewrite.c>
+RewriteEngine On
 
-# Hide error logs
+# Block access to include-only files
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+
+# Prevent access to error_log or debug.log
 RewriteRule ^(.*)error_log$ - [L,R=404]
+RewriteRule ^(.*)debug.log$ - [L,R=404]
 
-# Prevent access to files starting with dot (e.g. /.git/HEAD)
+# Prevent access to files starting with a dot (e.g. /.git/HEAD)
 RewriteCond %{THE_REQUEST} ^.*/\.
 RewriteRule (^\.|/\.) - [F]
 
-# Redirect from http to https
+# Redirect site through SSL
 #RewriteCond %{HTTPS} off [OR]
 #RewriteCond %{SERVER_PORT} ^80$
 #RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
