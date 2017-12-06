@@ -1,7 +1,7 @@
 Git-Optimized WordPress
 =======================
 
-This repository contains a Git-optimized boilerplate structure for WordPress websites. It incorporates security best practices
+This repository contains a Git-optimized boilerplate structure for WordPress websites. It incorporates security best practices to harden the WordPress structure
 
 *Note: While this project uses Git for version control, the structure itself is software-agnostic. With a few minor modifications it could be used with any version control software, such as [Subversion](https://subversion.apache.org/).*
 
@@ -23,7 +23,7 @@ Setting up a new project repository
  3. Delete the `.git` directory to separate your files from this repository: `rm -rf .git`
  4. Update `wp-config.php` with default [salts & keys](https://api.wordpress.org/secret-key/1.1/salt/).
  5. If SSL is enabled, uncomment the `Force site through SSL` section of `wp-login.php` and `Redirect site through SSL` section of `.htaccess`.
- 5. Create a new, project-specific repository:
+ 6. Create a new, project-specific repository:
 ```
 git init
 git add .
@@ -55,7 +55,7 @@ Note: These instructions assume a global installation of Composer. If Composer i
 
 Unless you've only just installed Composer, it's a good idea to run `composer self-update` before getting started.
 
- 1. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There is both a plugin ([Akismet](https://wordpress.org/plugins/akismet/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. If you edit the dependencies, add the changes to the repository: `git add composer.json`
+ 1. Open `composer.json`, add any plugin or theme dependencies at the bottom of the `"require"` section, and save. There are a few recommended plugins ([Akismet](https://wordpress.org/plugins/akismet/), [Duo Two-Factor Authentication](https://wordpress.org/plugins/duo-wordpress/), [Jetpack](https://wordpress.org/plugins/jetpack/), [Wordfence](https://wordpress.org/plugins/wordfence/), [WP-DBManager](https://wordpress.org/plugins/wp-dbmanager/)) and a theme ([Twenty Sixteen](https://wordpress.org/themes/twentysixteen/)) already in this section for reference. If you edit the dependencies, add the changes to the repository: `git add composer.json`
  2. Run Composer to install WordPress and all dependencies: `composer install`
  3. Add the Composer-generated lock file to the repository: `git add composer.lock`
  4. If you have any theme dependencies (such as a parent theme) that shouldn't be in the repository, adjust `.gitignore` to reflect, then add the changes to the repository: `git add .gitignore`

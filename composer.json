@@ -9,6 +9,10 @@
 		"php": ">=5.4",
 		"johnpbloch/wordpress": "*",
 		"wpackagist-plugin/akismet": "*",
+		"wpackagist-plugin/duo-wordpress": "*",
+		"wpackagist-plugin/jetpack": "*",
+		"wpackagist-plugin/wordfence": "*",
+		"wpackagist-plugin/wp-dbmanager": "*",
 		"wpackagist-theme/twentysixteen": "*"
 	},
 	"extra": {
