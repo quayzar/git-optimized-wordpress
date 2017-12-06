@@ -3,7 +3,7 @@
  * Project-wide configuration file for Git-Optimized WordPress
  * 
  * @package Git-Optimized WordPress
- * @version 1.0
+ * @version 1.1
  * @author Ian MacKenzie
  * @link https://github.com/quayzar/git-optimized-wordpress
  * 
@@ -24,7 +24,7 @@ define( 'ABOVE_WEB_ROOT', dirname( WEB_ROOT ) . '/' );
 
 /* 
  * Find and require localized config file
- * Comment out any environments you're not using
+ * Comment out or remove any environments you're not using
 */
 
 // Local
@@ -113,12 +113,13 @@ if ( !defined( 'ADDL_SUBDIR' )) {
 	define( 'ADDL_SUBDIR', '' );
 }
 
-/* If SSL is enabled, uncomment this section:
-// Force site through SSL
-define( 'FORCE_SSL_ADMIN', true );
-define( 'FORCE_SSL_LOGIN', true );
-*/
-define( 'WP_HOME',		( ( defined( 'FORCE_SSL_ADMIN' ) && FORCE_SSL_ADMIN ) ? 'https' : 'http' ) . '://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
+/* Enforce SSL if enabled */
+if( defined( 'SSL_ENABLED' ) && SSL_ENABLED ) {
+	define( 'FORCE_SSL_ADMIN', true );
+}
+
+/* Define WordPress paths */
+define( 'WP_HOME',		( ( defined( 'SSL_ENABLED' ) && SSL_ENABLED ) ? 'https' : 'http' ) . '://' . $_SERVER['SERVER_NAME'] . ADDL_SUBDIR );
 define( 'WP_CONTENT_DIR',	WEB_ROOT . 'wp-content' );
 define( 'WP_SITEURL',		WP_HOME . '/cms' );
 define( 'WP_CONTENT_URL',	WP_HOME . '/wp-content' );

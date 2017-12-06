@@ -6,7 +6,7 @@
  * WordPress installation. It should *not* be committed to the project repository.
  * 
  * To use, save a copy of this file (either at the web root or, for added security, one level above),
- * replacing "sample" in the name with "local", "dev", "stage", or "live", then update your new file 
+ * replacing "sample" in the name with "local", "dev", or "live", then update your new file 
  * with environment-specific data. Read more about placement here:
  * http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial
  * 
@@ -38,6 +38,9 @@ define( 'DB_NAME', 	'' );
 define( 'DB_USER',	'' );
 define( 'DB_PASSWORD',	'' );
 
+/* Enforce SSL (if enabled) */
+define( 'SSL_ENABLED', false ); // change to 'true' if SSL is enabled for this particular instance
+
 /*
  * Environment-specific salts & keys
  * These will replace the default set stored in /wp-config.php
@@ -65,12 +68,12 @@ define( 'SCRIPT_DEBUG',		false ); // force use of non-minified CSS / JS files
 
 /*
  * PHP error reporting
- * For sorting out The White Screen of Death
+ * for sorting out The White Screen of Death
  */
 /*
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
 */
 
 /* REMOVE THIS LINE ONCE YOU'VE FINISHED CONFIGURING THIS FILE */
-die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>".__FILE__." is not configured!</h1>" );
+die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>" . __FILE__ . " is not configured!</h1>" );
