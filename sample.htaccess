@@ -1,0 +1,21 @@
+# Prevent directory listing
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+
+# Hide error logs
+RewriteRule ^(.*)error_log$ - [L,R=404]
+
+# Prevent access to files starting with dot (e.g. /.git/HEAD)
+RewriteCond %{THE_REQUEST} ^.*/\.
+RewriteRule (^\.|/\.) - [F]
+
+# Redirect from http to https
+#RewriteCond %{HTTPS} off [OR]
+#RewriteCond %{SERVER_PORT} ^80$
+#RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+
+</IfModule>
+
+# BEGIN WordPress
+# END WordPress
