@@ -30,31 +30,19 @@ define( 'ABOVE_WEB_ROOT', dirname( WEB_ROOT ) . '/' );
 // Local
 if ( file_exists( WEB_ROOT . 'local-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'local-config.php' )) {
 	define( 'IS_LOCAL', true );
-	if ( file_exists( WEB_ROOT . 'local-config.php' )) {
-		require WEB_ROOT . 'local-config.php';
-	} else {
-		require ABOVE_WEB_ROOT . 'local-config.php';
-	}
+	require file_exists( WEB_ROOT . 'local-config.php' ) ? WEB_ROOT . 'local-config.php' : ABOVE_WEB_ROOT . 'local-config.php';
 }
 
 // Dev
 elseif ( file_exists( WEB_ROOT . 'dev-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'dev-config.php' )) {
 	define( 'IS_DEV', true );
-	if ( file_exists( WEB_ROOT . 'dev-config.php' )) {
-		require WEB_ROOT . 'dev-config.php';
-	} else {
-		require ABOVE_WEB_ROOT . 'dev-config.php';
-	}
+	require file_exists( WEB_ROOT . 'dev-config.php' ) ? WEB_ROOT . 'dev-config.php' : ABOVE_WEB_ROOT . 'dev-config.php';
 }
 
 // Live
 elseif ( file_exists( WEB_ROOT . 'live-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'live-config.php' )) {
 	define( 'IS_LIVE', true );
-	if ( file_exists( WEB_ROOT . 'live-config.php' )) {
-		require WEB_ROOT . 'live-config.php';
-	} else {
-		require ABOVE_WEB_ROOT . 'live-config.php';
-	}
+	require file_exists( WEB_ROOT . 'live-config.php' ) ? WEB_ROOT . 'live-config.php' : ABOVE_WEB_ROOT . 'live-config.php';
 }
 
 // No localized config was found so stop everything
