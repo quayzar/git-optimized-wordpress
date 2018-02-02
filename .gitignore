@@ -4,8 +4,12 @@ config.php
 /composer.phar
 /vendor
 /cms
-/wp-content/plugins
 /wp-content/uploads
+/wp-content/plugins/*
+/wp-content/themes/*
 
-# If your theme isn't part of the project repository, uncomment this line:
-#/wp-content/themes
+# Uncomment and update this line to add a custom plugin to your repos
+#!/wp-content/plugins/my-plugin
+
+# Uncomment and update this line to add a custom theme to your repos
+#!/wp-content/themes/my-theme
