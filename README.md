@@ -37,7 +37,7 @@ Once your project repository has been set up, there are two remaining tasks: cre
 
 ##### Creating a localized config file
  1. Create an empty database. Note the host, database name, username, and password, as you'll need them shortly.
- 2. Copy `sample-config.php` to create a localized config file, replacing "sample" in the new name with "local", "dev", or "live", depending on the environment. Save it either at the web root (on the same level as `wp-config.php`) or, for enhanced security, one level up. [Read more here.](http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial/74972#74972)
+ 2. Create a copy of `sample-config.php` named `config.php`. This will be the localized config file for the current environment. Save it either at the web root (on the same level as `wp-config.php`) or, for enhanced security, one level up. [Read more here.](https://wordpress.stackexchange.com/a/74972)
  3. Open this new file and make the following changes:
   * Provide `ADDL_SUBDIR` (if any).
   * Enter the database credentials.

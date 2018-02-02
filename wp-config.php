@@ -14,7 +14,7 @@
  */
 
 /* Define absolute path to the WordPress subdirectory */
-if ( !defined( 'ABSPATH' )) {
+if ( !defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
@@ -22,31 +22,11 @@ if ( !defined( 'ABSPATH' )) {
 define( 'WEB_ROOT', dirname( ABSPATH ) . '/' );
 define( 'ABOVE_WEB_ROOT', dirname( WEB_ROOT ) . '/' );
 
-/* 
- * Find and require localized config file
- * Comment out or remove any environments you're not using
-*/
-
-// Local
-if ( file_exists( WEB_ROOT . 'local-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'local-config.php' )) {
-	define( 'IS_LOCAL', true );
-	require file_exists( WEB_ROOT . 'local-config.php' ) ? WEB_ROOT . 'local-config.php' : ABOVE_WEB_ROOT . 'local-config.php';
-}
-
-// Dev
-elseif ( file_exists( WEB_ROOT . 'dev-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'dev-config.php' )) {
-	define( 'IS_DEV', true );
-	require file_exists( WEB_ROOT . 'dev-config.php' ) ? WEB_ROOT . 'dev-config.php' : ABOVE_WEB_ROOT . 'dev-config.php';
-}
-
-// Live
-elseif ( file_exists( WEB_ROOT . 'live-config.php' ) || file_exists( ABOVE_WEB_ROOT . 'live-config.php' )) {
-	define( 'IS_LIVE', true );
-	require file_exists( WEB_ROOT . 'live-config.php' ) ? WEB_ROOT . 'live-config.php' : ABOVE_WEB_ROOT . 'live-config.php';
-}
-
-// No localized config was found so stop everything
-else {
+/* Find and require localized config file */
+$config_file = 'config.php'
+if ( file_exists( WEB_ROOT . $config_file ) || file_exists( ABOVE_WEB_ROOT . $config_file ) ) { // found it
+	require file_exists( WEB_ROOT . $config_file ) ? WEB_ROOT . $config_file : ABOVE_WEB_ROOT . $config_file;
+} else { // didn't find it so stop
 	die ( "<h1 style='font-weight:bold;font-family:sans-serif;color:#F00;'>No localized config file found!</h1>" );
 }
 
@@ -58,28 +38,28 @@ else {
  * IMPORTANT: REPLACE THE PLACEHOLDER TEXT HERE WITH PROPERLY-GENERATED VALUES!
  * 
  */
-if ( !defined( 'AUTH_KEY' )) {
+if ( !defined( 'AUTH_KEY' ) ) {
 	define( 'AUTH_KEY',		'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'SECURE_AUTH_KEY' )) {
+if ( !defined( 'SECURE_AUTH_KEY' ) ) {
 	define( 'SECURE_AUTH_KEY',	'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'LOGGED_IN_KEY' )) {
+if ( !defined( 'LOGGED_IN_KEY' ) ) {
 	define( 'LOGGED_IN_KEY',	'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'NONCE_KEY' )) {
+if ( !defined( 'NONCE_KEY' ) ) {
 	define( 'NONCE_KEY',		'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'AUTH_SALT' )) {
+if ( !defined( 'AUTH_SALT' ) ) {
 	define( 'AUTH_SALT',		'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'SECURE_AUTH_SALT' )) {
+if ( !defined( 'SECURE_AUTH_SALT' ) ) {
 	define( 'SECURE_AUTH_SALT',	'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'LOGGED_IN_SALT' )) {
+if ( !defined( 'LOGGED_IN_SALT' ) ) {
 	define( 'LOGGED_IN_SALT',	'replace_this_with_a_unique_phrase' );
 }
-if ( !defined( 'NONCE_SALT' )) {
+if ( !defined( 'NONCE_SALT' ) ) {
 	define( 'NONCE_SALT',		'replace_this_with_a_unique_phrase' );
 }
 /* Confirm all salts & keys have been updated */
@@ -97,7 +77,7 @@ if (
 }
 
 /* Define site paths */
-if ( !defined( 'ADDL_SUBDIR' )) {
+if ( !defined( 'ADDL_SUBDIR' ) ) {
 	define( 'ADDL_SUBDIR', '' );
 }
 
