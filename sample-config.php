@@ -5,24 +5,11 @@
  * This file contains all sensitive, environment-specific data for a Git-optimized 
  * WordPress installation. It should *not* be committed to the project repository.
  * 
- * To use, save a copy of this file (either at the web root or, for added security, one level above),
- * replacing "sample" in the name with "local", "dev", or "live", then update your new file 
- * with environment-specific data. Read more about placement here:
- * http://wordpress.stackexchange.com/questions/58391/is-moving-wp-config-outside-the-web-root-really-beneficial
- * 
- * For environments with multiple instances (such as a production server hosting the live site
- * at the web root and a dev instance hosted in a separate subdirectory) put the live config
- * one level above the web root and the other config file within the instance subdirectory, like so:
- * 
- * /dev/dev-config.php	<== dev site
- * /live-config.php
- * /public_html/	<== live site
- * 
- * This will prevent the dev instance from finding and loading the live config file.
- * Alternately, put all config files within the appropriate instance subdirectory:
- * 
- * /dev/dev-config.php
- * /public_html/live-config.php
+ * To use, create a copy of this file named "config.php" and save it either at the
+ * web root or, for added security, one level above. Read more about placement here:
+ * https://wordpress.stackexchange.com/a/74972
+ *
+ * Once you've saved the file, update the contents per the current environment.
  */
 
 /*
