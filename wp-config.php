@@ -23,7 +23,7 @@ define( 'WEB_ROOT', dirname( ABSPATH ) . '/' );
 define( 'ABOVE_WEB_ROOT', dirname( WEB_ROOT ) . '/' );
 
 /* Find and require localized config file */
-$config_file = 'config.php'
+$config_file = 'config.php';
 if ( file_exists( WEB_ROOT . $config_file ) || file_exists( ABOVE_WEB_ROOT . $config_file ) ) { // found it
 	require file_exists( WEB_ROOT . $config_file ) ? WEB_ROOT . $config_file : ABOVE_WEB_ROOT . $config_file;
 } else { // didn't find it so stop
